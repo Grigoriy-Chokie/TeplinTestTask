@@ -265,6 +265,10 @@
     }
   },
   "sections": {
+    "s-mega_menu": {
+      "shop_all": "Shop All",
+      "aria-label": "Mega Menu"
+    },
     "announcements": {
       "previous_announcement": "Previous announcement",
       "next_announcement": "Next announcement",

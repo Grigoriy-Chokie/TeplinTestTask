@@ -1,0 +1,69 @@
+{{ "section-mega-menu.css" | asset_url | stylesheet_tag }}
+
+<nav class="s-mega-menu" aria-label="{{ "sections.s-mega_menu.aria-label" | t }}">
+  <ul class="s-mega-menu__list page-width">
+    {% for link_list1 in section.settings.linklist.links %}
+      <li class="s-mega-menu__item{% if link_list1.links.size > 0 %} s-mega-menu__item--has-children{% endif %}">
+        <a href="{{ link_list1.url }}" class="s-mega-menu__link" 
+          {% if link_list1.links.size > 0 %}aria-haspopup="true" aria-expanded="false"{% endif %}>
+          {{ link_list1.title }}
+        </a>
+
+        {% if link_list1.links.size > 0 %}
+          <div class="s-mega-menu__submenu-wrapper">
+            <ul class="s-mega-menu__submenu page-width">
+              {% for link_list2 in link_list1.links %}
+                <li class="s-mega-menu__submenu-item{% if link_list2.links.size > 0 %} s-mega-menu__submenu-item--has-children{% endif %}">
+                  <a href="{{ link_list2.url }}" class="s-mega-menu__submenu-link" 
+                    {% if link_list2.links.size > 0 %}aria-haspopup="true" aria-expanded="false"{% endif %}>
+                    {{ link_list2.title }}
+                  </a>
+
+                  {% if link_list2.links.size > 0 %}
+                    <ul class="s-mega-menu__subsubmenu">
+                      {% assign linklist2_links = link_list2.links | sort: 'title' %}
+                      {% for link_list3 in linklist2_links %}
+                        <li class="s-mega-menu__subsubmenu-item">
+                          <a href="{{ link_list3.url }}" class="s-mega-menu__subsubmenu-link">{{ link_list3.title }}</a>
+                        </li>
+                      {% endfor %}
+                        <li class="s-mega-menu__subsubmenu-item">
+                          <a href="{{ link_list2.url }}" class="s-mega-menu__subsubmenu-link s-mega-menu__subsubmenu-link--parent-link">
+                            {{ "sections.s-mega_menu.shop_all" | t }}
+                          </a>
+                        </li>
+                    </ul>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
+
+
+{% schema %}
+{
+  "name": "Teplin Mega Menu",
+  "class": "section",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "linklist",
+      "label": "Select Menu"
+    }
+  ],
+  "enabled_on": {
+    "groups": ["header"],
+  },
+  "presets": [
+    {
+      "name": "Teplin Mega Menu"
+    }
+  ]
+}
+{% endschema %}
