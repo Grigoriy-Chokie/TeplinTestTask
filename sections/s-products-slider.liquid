@@ -1,0 +1,268 @@
+{{ "section-products-slider.css" | asset_url | stylesheet_tag }}
+
+{% style %}
+  #shopify-section-{{ section.id }} .s-products-slider {
+    padding-block: {{ section.settings.padding_top_m }}px {{ section.settings.padding_bottom_m }}px;
+  }
+
+  #shopify-section-{{ section.id }} .s-products-slider__title {
+    font-size: {{ section.settings.title_font_size_m }}px;
+    font-weight: {{ section.settings.title_font_weight }};
+    color: {{ section.settings.title_color }}
+  }
+
+  #shopify-section-{{ section.id }} .s-products-slider__description > * {
+    font-size: {{ section.settings.description_font_size_m }}px;
+    font-weight: {{ section.settings.description_font_weight }};
+    color: {{ section.settings.description_color }};
+  }
+
+  #shopify-section-{{ section.id }} .s-products-slider__link {
+    font-size: {{ section.settings.link_font_size_m }}px;
+    font-weight: {{ section.settings.link_font_weight }};
+    color: {{ section.settings.link_color }};
+  }
+
+  #shopify-section-{{ section.id }} .s-products-slider__link::before {
+    background: {{ section.settings.link_color }};
+  }
+
+  @media (min-width: 750px) {
+    #shopify-section-{{ section.id }} .s-products-slider {
+      padding-block: {{ section.settings.padding_top_d }}px {{ section.settings.padding_bottom_d }}px;
+    }
+
+    #shopify-section-{{ section.id }} .s-products-slider__title {
+      font-size: {{ section.settings.title_font_size_d }}px;
+    }
+
+    #shopify-section-{{ section.id }} .s-products-slider__description > * {
+      font-size: {{ section.settings.description_font_size_d }}px;
+    }
+
+    #shopify-section-{{ section.id }} .s-products-slider__link {
+      font-size: {{ section.settings.link_font_size_d }}px;
+    }
+  }
+{% endstyle %}
+
+<s-products-slider class="s-products-slider">
+  <div class="s-products-slider__content">
+    {% if section.settings.title != blank %}
+      <h2 class="s-products-slider__title">
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+
+    {% if section.settings.description != blank %}
+      <div class="s-products-slider__description">
+        {{ section.settings.description }}
+      </div>
+    {% endif %}
+
+    {% if section.settings.link != blank and section.settings.link_url != blank %}
+      <a class="s-products-slider__link" href="{{ section.settings.link_url }}">
+        {{ section.settings.link }}
+      </a>
+    {% endif %}
+  </div>
+</s-products-slider>
+
+{% schema %}
+{
+  "name": "Teplin Products Slider",
+  "class": "section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_m",
+      "label": "Padding Top (Mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_m",
+      "label": "Padding Bottom (Mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_top_d",
+      "label": "Padding Top (Desktop)",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_d",
+      "label": "Padding Bottom (Desktop)",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "header",
+      "content": "Title Settings"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Shop the Marketplace"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#2B2424"
+    },
+    {
+      "type": "range",
+      "id": "title_font_weight",
+      "label": "Title Font Weight",
+      "min": 100,
+      "max": 900,
+      "step": 100,
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_m",
+      "label": "Title Font Size (Mobile)",
+      "min": 10,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_d",
+      "label": "Title Font Size (Desktop)",
+      "min": 10,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "header",
+      "content": "Description Settings"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>We go out of our way to source products that are vegan, <br> cruelty-free and free from most common toxins.</p>"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description Color",
+      "default": "#8E8385"
+    },
+    {
+      "type": "range",
+      "id": "description_font_weight",
+      "label": "Description Font Weight",
+      "min": 100,
+      "max": 900,
+      "step": 100,
+      "default": 500
+    },
+    {
+      "type": "range",
+      "id": "description_font_size_m",
+      "label": "Description Font Size (Mobile)",
+      "min": 10,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "description_font_size_d",
+      "label": "Description Font Size (Desktop)",
+      "min": 10,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "header",
+      "content": "Link Settings"
+    },
+    {
+      "type": "text",
+      "id": "link",
+      "label": "Link Text",
+      "default": "Shop All"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Link URL"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link Color",
+      "default": "#2B2424"
+    },
+    {
+      "type": "range",
+      "id": "link_font_weight",
+      "label": "Link Font Weight",
+      "min": 100,
+      "max": 900,
+      "step": 100,
+      "default": 700
+    },
+    {
+      "type": "range",
+      "id": "link_font_size_m",
+      "label": "Link Font Size (Mobile)",
+      "min": 10,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "link_font_size_d",
+      "label": "Link Font Size (Desktop)",
+      "min": 10,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 14
+    }
+  ],
+  "presets": [
+    {
+      "name": "Teplin Products Slider"
+    }
+  ]
+}
+{% endschema %}

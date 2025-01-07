@@ -48,6 +48,149 @@
     %}
 
     {% style %}
+      /*Heading Font Connection*/
+      @font-face {
+        font-family: 'Playfair Display';
+        src: url('{{ "PlayfairDisplay-Regular.ttf" | asset_url }}') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'Playfair Display';
+        src: url('{{ "PlayfairDisplay-Italic.ttf" | asset_url }}') format('truetype');
+        font-weight: 400;
+        font-style: italic;
+      }
+
+      @font-face {
+        font-family: 'Playfair Display';
+        src: url('{{ "PlayfairDisplay-Medium.ttf" | asset_url }}') format('truetype');
+        font-weight: 500;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'Playfair Display';
+        src: url('{{ "PlayfairDisplay-MediumItalic.ttf" | asset_url }}') format('truetype');
+        font-weight: 500;
+        font-style: italic;
+      }
+
+      @font-face {
+        font-family: 'Playfair Display';
+        src: url('{{ "PlayfairDisplay-SemiBold.ttf" | asset_url }}') format('truetype');
+        font-weight: 600;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'Playfair Display';
+        src: url('{{ "PlayfairDisplay-SemiBoldItalic.ttf" | asset_url }}') format('truetype');
+        font-weight: 600;
+        font-style: italic;
+      }
+
+      @font-face {
+        font-family: 'Playfair Display';
+        src: url('{{ "PlayfairDisplay-Bold.ttf" | asset_url }}') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'Playfair Display';
+        src: url('{{ "PlayfairDisplay-BoldItalic.ttf" | asset_url }}') format('truetype');
+        font-weight: 700;
+        font-style: italic;
+      }
+
+      @font-face {
+        font-family: 'Playfair Display';
+        src: url('{{ "PlayfairDisplay-Black.ttf" | asset_url }}') format('truetype');
+        font-weight: 900;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'Playfair Display';
+        src: url('{{ "PlayfairDisplay-BlackItalic.ttf" | asset_url }}') format('truetype');
+        font-weight: 900;
+        font-style: italic;
+      }
+
+      @font-face {
+        font-family: 'Playfair Display';
+        src: url('{{ "PlayfairDisplay-ExtraBold.ttf" | asset_url }}') format('truetype');
+        font-weight: 800;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'Playfair Display';
+        src: url('{{ "PlayfairDisplay-ExtraBoldItalic.ttf" | asset_url }}') format('truetype');
+        font-weight: 800;
+        font-style: italic;
+      }
+
+
+      /* Body Font Connection */
+      @font-face {
+        font-family: 'Manrope';
+        src: url("{{ 'Manrope-ExtraLight.ttf' | asset_url }}") format('truetype');
+        font-weight: 200;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Manrope';
+        src: url("{{ 'Manrope-Light.ttf' | asset_url }}") format('truetype');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Manrope';
+        src: url("{{ 'Manrope-Regular.ttf' | asset_url }}") format('truetype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Manrope';
+        src: url("{{ 'Manrope-Medium.ttf' | asset_url }}") format('truetype');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Manrope';
+        src: url("{{ 'Manrope-SemiBold.ttf' | asset_url }}") format('truetype');
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Manrope';
+        src: url("{{ 'Manrope-Bold.ttf' | asset_url }}") format('truetype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Manrope';
+        src: url("{{ 'Manrope-ExtraBold.ttf' | asset_url }}") format('truetype');
+        font-weight: 800;
+        font-style: normal;
+        font-display: swap;
+      }
+
       {{ settings.type_body_font | font_face: font_display: 'swap' }}
       {{ body_font_bold | font_face: font_display: 'swap' }}
       {{ body_font_italic | font_face: font_display: 'swap' }}
@@ -100,12 +243,12 @@
       }
 
       :root {
-        --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+        --font-body-family: 'Manrope', sans-serif;
         --font-body-style: {{ settings.type_body_font.style }};
         --font-body-weight: {{ settings.type_body_font.weight }};
         --font-body-weight-bold: {{ settings.type_body_font.weight | plus: 300 | at_most: 1000 }};
 
-        --font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
+        --font-heading-family: 'Playfair Display', serif;
         --font-heading-style: {{ settings.type_header_font.style }};
         --font-heading-weight: {{ settings.type_header_font.weight }};
 
