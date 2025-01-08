@@ -264,6 +264,9 @@
       "subtext": "404"
     }
   },
+  "components": {
+    "product-card": "Add To Card"
+  },
   "sections": {
     "s-mega_menu": {
       "shop_all": "Shop All",

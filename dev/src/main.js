@@ -1,8 +1,4 @@
 // vendor
-// import function to register Swiper custom elements
-window.register = require('../node_modules/swiper/swiper-element-bundle');
-// register Swiper custom elements
-window.register.default;
 require('lazysizes');
 
 

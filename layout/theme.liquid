@@ -28,6 +28,10 @@
 
     {% render 'meta-tags' %}
 
+    {{ "swiper-slider.css" | asset_url | stylesheet_tag }}
+    <script src="{{ 'swiper-slider.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'main.js' | asset_url }}" defer="defer"></script>
+
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>

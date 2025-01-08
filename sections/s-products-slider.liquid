@@ -1,4 +1,8 @@
 {{ "section-products-slider.css" | asset_url | stylesheet_tag }}
+{{ "component-product-card.css" | asset_url | stylesheet_tag }}
+
+<script src="{{ "section-products-slider.js" | asset_url }}" defer="defer"></script>
+<script src="{{ "component-product-card.js" | asset_url }}" defer="defer"></script>
 
 {% style %}
   #shopify-section-{{ section.id }} .s-products-slider {
@@ -46,7 +50,7 @@
   }
 {% endstyle %}
 
-<s-products-slider class="s-products-slider">
+<s-products-slider class="s-products-slider page-width">
   <div class="s-products-slider__content">
     {% if section.settings.title != blank %}
       <h2 class="s-products-slider__title">
@@ -66,6 +70,18 @@
       </a>
     {% endif %}
   </div>
+
+  <div class="s-featured-products__list swiper js-featured-products__list">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        {% if block.settings.product != null %}
+          <div class="s-featured-products__item swiper-slide">
+            {% render "c-product-card", product: block.settings.product, settings: block.settings %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
 </s-products-slider>
 
 {% schema %}
@@ -83,7 +99,7 @@
       "id": "padding_top_m",
       "label": "Padding Top (Mobile)",
       "min": 0,
-      "max": 120,
+      "max": 160,
       "step": 2,
       "unit": "px",
       "default": 48
@@ -93,7 +109,7 @@
       "id": "padding_bottom_m",
       "label": "Padding Bottom (Mobile)",
       "min": 0,
-      "max": 120,
+      "max": 160,
       "step": 2,
       "unit": "px",
       "default": 48
@@ -103,7 +119,7 @@
       "id": "padding_top_d",
       "label": "Padding Top (Desktop)",
       "min": 0,
-      "max": 120,
+      "max": 160,
       "step": 2,
       "unit": "px",
       "default": 64
@@ -113,7 +129,7 @@
       "id": "padding_bottom_d",
       "label": "Padding Bottom (Desktop)",
       "min": 0,
-      "max": 120,
+      "max": 160,
       "step": 2,
       "unit": "px",
       "default": 64
@@ -257,6 +273,37 @@
       "step": 2,
       "unit": "px",
       "default": 14
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Product"
+        },
+        {
+          "type": "header",
+          "content": "Reviews Settings"
+        },
+        {
+          "type": "text",
+          "id": "reviews_label",
+          "label": "Reviews Label",
+          "default": "15 Reviews"
+        },
+        {
+          "type": "range",
+          "id": "review_stars",
+          "label": "Review Stars",
+          "min": 1,
+          "max": 5,
+          "default": 5
+        }
+      ]
     }
   ],
   "presets": [

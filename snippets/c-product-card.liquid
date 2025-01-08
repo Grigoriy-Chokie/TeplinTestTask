@@ -1,0 +1,61 @@
+<c-product-card class="c-product-card" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
+  {% if product.featured_image != blank %}
+    <a href="{{ product.url }}" class="c-product-card__image-wrapper">
+      {% render 'image-lazy',
+        image: product.featured_image,
+        class: 'c-product-card__image',
+        lazy: true
+      %}
+    </a>
+  {% endif %}
+
+  <div class="c-product-card__container">
+    <span class="c-product-card__vendor">
+      {{ product.vendor }}
+    </span>
+
+    <a href="{{ product.url }}" class="c-product-card__title">
+      {{ product.title }}
+    </a>
+
+    <div class="c-product-card__wrapper">
+      <div class="c-product-card__price-wrapper">
+        {%- if product.selected_or_first_available_variant.compare_at_price -%}
+          <span class="c-product-card__price">
+            {{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}
+          </span>
+          <span class="c-product-card__compare-at-price">
+            {{ product.selected_or_first_available_variant.compare_at_price | money_without_trailing_zeros }}
+          </span>
+        {%- else -%}
+          <span class="c-product-card__price">
+            {{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}
+          </span>
+        {%- endif -%}
+      </div>
+
+      {% if settings.reviews_label != blank %} 
+        <div class="c-product-card__reviews-wrapper">
+          <div class="c-product-card__reviews-stars">
+            {% for i in (1..5) %}
+              {% if i <= settings.review_stars %}
+                {% render "icon-star-full" %}
+              {% else %}
+                {% render "icon-star-empty" %}
+              {% endif %}
+            {% endfor %}
+          </div>
+          <span class="c-product-card__reviews-label">
+            {{ settings.reviews_label }}
+          </span>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="c-product-card__buttons">
+    <button type="button" class="c-product-card__button js-product-card__button" {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}>
+      {{ "components.product-card" | t }}
+    </button>
+  </div>
+</c-product-card>

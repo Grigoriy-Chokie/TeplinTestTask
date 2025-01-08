@@ -11,6 +11,82 @@
   "sections": {
     "s_products_slider_kt34LH": {
       "type": "s-products-slider",
+      "blocks": {
+        "product_7PGByW": {
+          "type": "product",
+          "settings": {
+            "product": "еууу",
+            "reviews_label": "1 Reviews",
+            "review_stars": 2
+          }
+        },
+        "product_PiPrEF": {
+          "type": "product",
+          "settings": {
+            "product": "tesrer",
+            "reviews_label": "15 Reviews",
+            "review_stars": 5
+          }
+        },
+        "product_nAaj87": {
+          "type": "product",
+          "settings": {
+            "product": "test-product",
+            "reviews_label": "15 Reviews",
+            "review_stars": 5
+          }
+        },
+        "product_mQ34M9": {
+          "type": "product",
+          "settings": {
+            "product": "test-product-2",
+            "reviews_label": "15 Reviews",
+            "review_stars": 2
+          }
+        },
+        "product_NHdyJb": {
+          "type": "product",
+          "settings": {
+            "product": "tesrer",
+            "reviews_label": "15 Reviews",
+            "review_stars": 5
+          }
+        },
+        "product_kaLLAt": {
+          "type": "product",
+          "settings": {
+            "product": "tesrer",
+            "reviews_label": "15 Reviews",
+            "review_stars": 5
+          }
+        },
+        "product_G6Mp4d": {
+          "type": "product",
+          "settings": {
+            "product": "tesrer",
+            "reviews_label": "15 Reviews",
+            "review_stars": 5
+          }
+        },
+        "product_ik3fM9": {
+          "type": "product",
+          "settings": {
+            "product": "tesrer",
+            "reviews_label": "15 Reviews",
+            "review_stars": 5
+          }
+        }
+      },
+      "block_order": [
+        "product_7PGByW",
+        "product_PiPrEF",
+        "product_nAaj87",
+        "product_mQ34M9",
+        "product_NHdyJb",
+        "product_kaLLAt",
+        "product_G6Mp4d",
+        "product_ik3fM9"
+      ],
       "settings": {
         "padding_top_m": 48,
         "padding_bottom_m": 48,
