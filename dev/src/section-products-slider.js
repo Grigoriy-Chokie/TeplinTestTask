@@ -6,7 +6,7 @@ if (!customElements.get('s-products-slider')) {
     }
 
     connectedCallback() {
-      this.swiper = new Swiper('.s-featured-products__list', {
+      this.swiper = new Swiper('.js-products-slider__list', {
         // Default parameters
         slidesPerView: 1,
         spaceBetween: 25,

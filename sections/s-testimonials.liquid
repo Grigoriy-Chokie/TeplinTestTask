@@ -1,0 +1,204 @@
+{{ "section-testimonials.css" | asset_url | stylesheet_tag }}
+
+{% style %}
+  #shopify-section-{{ section.id }} .s-testimonials {
+    padding-block: {{ section.settings.padding_top_m }}px {{ section.settings.padding_bottom_m }}px;
+  }
+
+  #shopify-section-{{ section.id }} .s-testimonials__title {
+    font-size: {{ section.settings.title_font_size_m }}px;
+    font-weight: {{ section.settings.title_font_weight }};
+    color: {{ section.settings.title_color }}
+  }
+
+  @media (min-width: 750px) {
+    #shopify-section-{{ section.id }} .s-testimonials  {
+      padding-block: {{ section.settings.padding_top_d }}px {{ section.settings.padding_bottom_d }}px;
+    }
+
+    #shopify-section-{{ section.id }} .s-testimonials__title {
+      font-size: {{ section.settings.title_font_size_d }}px;
+    }
+  }
+{% endstyle %}
+
+<s-products-slider class="s-testimonials  page-width">
+    {% if section.settings.title != blank %}
+      <h2 class="s-testimonials__title">
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+
+  <div class="s-testimonials__list">
+    {% for block in section.blocks %}
+      <div class="s-testimonials__item">
+        <div class="s-testimonials__reviews-stars">
+          {% for i in (1..5) %}
+            {% if i <= block.settings.review_stars %}
+              {% render "icon-star-full" %}
+            {% else %}
+              {% render "icon-star-empty" %}
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        {% if block.settings.image != blank %}
+          <div class="s-testimonials__reviewer-image">
+            {% render 'image-lazy',
+              image: block.settings.image,
+              lazy: true
+            %}
+          </div>
+        {% endif %}
+
+        {% if block.settings.name != blank %}
+          <h3 class="s-testimonials__reviewer-name">
+            {{ block.settings.name }}
+          </h3>
+        {% endif %}
+
+        {% if block.settings.description %}
+          <div class="s-testimonials__description">
+            {{ block.settings.description }}
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</s-products-slider>
+
+{% schema %}
+{
+  "name": "Teplin Testimonials",
+  "class": "section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_m",
+      "label": "Padding Top (Mobile)",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_m",
+      "label": "Padding Bottom (Mobile)",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_top_d",
+      "label": "Padding Top (Desktop)",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_d",
+      "label": "Padding Bottom (Desktop)",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "header",
+      "content": "Title Settings"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Reviews"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#2B2424"
+    },
+    {
+      "type": "range",
+      "id": "title_font_weight",
+      "label": "Title Font Weight",
+      "min": 100,
+      "max": 900,
+      "step": 100,
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_m",
+      "label": "Title Font Size (Mobile)",
+      "min": 10,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_d",
+      "label": "Title Font Size (Desktop)",
+      "min": 10,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "range",
+          "id": "review_stars",
+          "label": "Review Stars",
+          "min": 1,
+          "max": 5,
+          "default": 5
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Enter Reviewer Name"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Reviewer Photo"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Review Text",
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Teplin Testimonials"
+    }
+  ]
+}
+{% endschema %}

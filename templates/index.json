@@ -109,9 +109,68 @@
         "link_font_size_m": 12,
         "link_font_size_d": 14
       }
+    },
+    "s_testimonials_qchkW6": {
+      "type": "s-testimonials",
+      "blocks": {
+        "testimonial_HYtQgx": {
+          "type": "testimonial",
+          "settings": {
+            "review_stars": 5,
+            "name": "Tester Tester",
+            "image": "shopify://shop_images/MainAfter.jpg",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>"
+          }
+        },
+        "testimonial_HYtQgx0": {
+          "type": "testimonial",
+          "settings": {
+            "review_stars": 3,
+            "name": "Tester Tester",
+            "image": "shopify://shop_images/MainAfter.jpg",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>"
+          }
+        },
+        "testimonial_HYtQgx1": {
+          "type": "testimonial",
+          "settings": {
+            "review_stars": 4,
+            "name": "Tester Tester",
+            "image": "shopify://shop_images/MainAfter.jpg",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>"
+          }
+        },
+        "testimonial_HYtQgx2": {
+          "type": "testimonial",
+          "settings": {
+            "review_stars": 5,
+            "name": "Tester Tester",
+            "image": "shopify://shop_images/MainAfter.jpg",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_HYtQgx",
+        "testimonial_HYtQgx0",
+        "testimonial_HYtQgx1",
+        "testimonial_HYtQgx2"
+      ],
+      "settings": {
+        "padding_top_m": 48,
+        "padding_bottom_m": 48,
+        "padding_top_d": 64,
+        "padding_bottom_d": 64,
+        "title": "Reviews",
+        "title_color": "#2B2424",
+        "title_font_weight": 600,
+        "title_font_size_m": 48,
+        "title_font_size_d": 64
+      }
     }
   },
   "order": [
-    "s_products_slider_kt34LH"
+    "s_products_slider_kt34LH",
+    "s_testimonials_qchkW6"
   ]
 }

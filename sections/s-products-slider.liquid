@@ -71,11 +71,11 @@
     {% endif %}
   </div>
 
-  <div class="s-featured-products__list swiper js-featured-products__list">
+  <div class="s-products-slider__list swiper js-products-slider__list">
     <div class="swiper-wrapper">
       {% for block in section.blocks %}
         {% if block.settings.product != null %}
-          <div class="s-featured-products__item swiper-slide">
+          <div class="s-products-slider__item swiper-slide">
             {% render "c-product-card", product: block.settings.product, settings: block.settings %}
           </div>
         {% endif %}
