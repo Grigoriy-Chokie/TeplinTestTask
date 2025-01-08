@@ -1,5 +1,7 @@
 {{ "section-testimonials.css" | asset_url | stylesheet_tag }}
 
+<script src="{{ "section-testimonials.js" | asset_url }}" defer="defer"></script>
+
 {% style %}
   #shopify-section-{{ section.id }} .s-testimonials {
     padding-block: {{ section.settings.padding_top_m }}px {{ section.settings.padding_bottom_m }}px;
@@ -22,50 +24,54 @@
   }
 {% endstyle %}
 
-<s-products-slider class="s-testimonials  page-width">
+<s-testimonials class="s-testimonials  page-width">
     {% if section.settings.title != blank %}
       <h2 class="s-testimonials__title">
         {{ section.settings.title }}
       </h2>
     {% endif %}
 
-  <div class="s-testimonials__list">
-    {% for block in section.blocks %}
-      <div class="s-testimonials__item">
-        <div class="s-testimonials__reviews-stars">
-          {% for i in (1..5) %}
-            {% if i <= block.settings.review_stars %}
-              {% render "icon-star-full" %}
-            {% else %}
-              {% render "icon-star-empty" %}
+  <div class="s-testimonials__list swiper js-testimonials__list">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        <div class="swiper-slide">
+          <div class="s-testimonials__item">
+            <div class="s-testimonials__reviews-stars">
+              {% for i in (1..5) %}
+                {% if i <= block.settings.review_stars %}
+                  {% render "icon-star-full" %}
+                {% else %}
+                  {% render "icon-star-empty" %}
+                {% endif %}
+              {% endfor %}
+            </div>
+
+            {% if block.settings.image != blank %}
+              <div class="s-testimonials__reviewer-image">
+                {% render 'image-lazy',
+                  image: block.settings.image,
+                  lazy: true
+                %}
+              </div>
             {% endif %}
-          {% endfor %}
+
+            {% if block.settings.name != blank %}
+              <h3 class="s-testimonials__reviewer-name">
+                {{ block.settings.name }}
+              </h3>
+            {% endif %}
+
+            {% if block.settings.description %}
+              <div class="s-testimonials__description">
+                {{ block.settings.description }}
+              </div>
+            {% endif %}
+          </div>
         </div>
-
-        {% if block.settings.image != blank %}
-          <div class="s-testimonials__reviewer-image">
-            {% render 'image-lazy',
-              image: block.settings.image,
-              lazy: true
-            %}
-          </div>
-        {% endif %}
-
-        {% if block.settings.name != blank %}
-          <h3 class="s-testimonials__reviewer-name">
-            {{ block.settings.name }}
-          </h3>
-        {% endif %}
-
-        {% if block.settings.description %}
-          <div class="s-testimonials__description">
-            {{ block.settings.description }}
-          </div>
-        {% endif %}
-      </div>
-    {% endfor %}
+      {% endfor %}
+    </div>
   </div>
-</s-products-slider>
+</s-testimonials>
 
 {% schema %}
 {

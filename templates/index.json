@@ -148,13 +148,33 @@
             "image": "shopify://shop_images/MainAfter.jpg",
             "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>"
           }
+        },
+        "testimonial_HYtQgx3": {
+          "type": "testimonial",
+          "settings": {
+            "review_stars": 3,
+            "name": "Tester Tester",
+            "image": "shopify://shop_images/MainAfter.jpg",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>"
+          }
+        },
+        "testimonial_HYtQgx4": {
+          "type": "testimonial",
+          "settings": {
+            "review_stars": 5,
+            "name": "Tester Tester",
+            "image": "shopify://shop_images/MainAfter.jpg",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>"
+          }
         }
       },
       "block_order": [
         "testimonial_HYtQgx",
         "testimonial_HYtQgx0",
         "testimonial_HYtQgx1",
-        "testimonial_HYtQgx2"
+        "testimonial_HYtQgx2",
+        "testimonial_HYtQgx3",
+        "testimonial_HYtQgx4"
       ],
       "settings": {
         "padding_top_m": 48,
