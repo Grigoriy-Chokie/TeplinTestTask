@@ -27,7 +27,7 @@
   }
 
   &__reviewer-image {
-    width: 50%;
+    max-width: 150px;
     aspect-ratio: 1/1;
     overflow: hidden;
     border-radius: 50%;
